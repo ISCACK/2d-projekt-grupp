@@ -131,6 +131,7 @@ public class PlayerMovement2 : MonoBehaviour
         {
             isWallSliding = false;
         }
+
     }
 
     private void WallJump()
