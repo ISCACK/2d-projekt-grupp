@@ -36,7 +36,7 @@ public class PlayerMovement2 : MonoBehaviour
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private TrailRenderer tr;
-    [SerializeField] private Transform WallCheck;
+    [SerializeField] private Transform wallCheck;
     [SerializeField] private LayerMask wallLayer;
 
 
@@ -117,7 +117,7 @@ public class PlayerMovement2 : MonoBehaviour
 
     private bool IsWalled()
     {
-        return Physics2D.OverlapCircle(WallCheck.position, 0.2f, wallLayer);
+        return Physics2D.OverlapCircle(wallCheck.position, 0.2f, wallLayer);
     }
 
     private void WallSlide()
