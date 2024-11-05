@@ -31,6 +31,12 @@ public class DeathCounterUI : MonoBehaviour
         UpdateDeathCounterText();
     }
 
+    private void OnApplicationQuit()
+    {
+        PlayerPrefs.DeleteKey("GameStarted");
+    }
+
+
     private void UpdateDeathCounterText()
     {
         deathCounterText.text = "Deaths: " + deathCount;
