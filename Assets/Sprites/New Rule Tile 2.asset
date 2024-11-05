@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9d1514134bc4fbd41bb739b1b9a49231, type: 3}
-  m_Name: New Rule Tile 1
+  m_Name: New Rule Tile 2
   m_EditorClassIdentifier: 
-  m_DefaultSprite: {fileID: 8851940655419035031, guid: 5f7ed4bb100ce49459429fdd20f31b96, type: 3}
+  m_DefaultSprite: {fileID: -9052802311129465074, guid: 5f7ed4bb100ce49459429fdd20f31b96, type: 3}
   m_DefaultGameObject: {fileID: 0}
   m_DefaultColliderType: 1
   m_TilingRules:
