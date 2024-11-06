@@ -16,7 +16,7 @@ public class Death : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             // Increment the death count
-          // deathCounterUI.IncrementDeathCount(); //
+            deathCounterUI.IncrementDeathCount();
 
             // Reload the scene
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
