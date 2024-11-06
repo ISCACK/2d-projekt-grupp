@@ -1,24 +1,22 @@
 using UnityEngine;
-using UnityEngine.UI; // Use this if you're using the default Text component
-// using TMPro; // Uncomment this if you're using TextMeshPro
+using UnityEngine.UI; // Needed for UI components
 
 public class SignTrigger : MonoBehaviour
 {
-    public Text signText; // Assign your UI Text component here
-    // public TextMeshProUGUI signText; // Uncomment if using TextMeshPro
+    public GameObject signUI; // Assign the parent UI GameObject that holds text and/or image as children
 
     private void Start()
     {
-        // Ensure the text is initially hidden
-        signText.gameObject.SetActive(false);
+        // Ensure the UI GameObject is initially hidden
+        signUI.SetActive(false);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            // Show the UI text when the Player collides with the Sign
-            signText.gameObject.SetActive(true);
+            // Show the entire UI GameObject when the Player collides with the Sign
+            signUI.SetActive(true);
         }
     }
 
@@ -26,8 +24,8 @@ public class SignTrigger : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            // Hide the UI text when the Player exits the Sign's collider
-            signText.gameObject.SetActive(false);
+            // Hide the entire UI GameObject when the Player exits the Sign's collider
+            signUI.SetActive(false);
         }
     }
 }
