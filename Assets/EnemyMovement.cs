@@ -11,8 +11,10 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private Transform flipCheck;
+    [SerializeField] private Transform weakpointCheck;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private LayerMask flipLayer;
+    [SerializeField] private LayerMask playerLayer;
 
     void Update()
     {
@@ -20,6 +22,12 @@ public class EnemyMovement : MonoBehaviour
         if (IsAtFlipPoint())
         {
             Flip();
+        }
+
+        // Check if the enemy's weak point was hit
+        if (IsWeakpointHit())
+        {
+            Destroy(gameObject);
         }
     }
 
@@ -39,6 +47,12 @@ public class EnemyMovement : MonoBehaviour
     {
         // Checks if the enemy is at a flip point, to reverse its direction
         return Physics2D.OverlapCircle(flipCheck.position, 0.2f, flipLayer);
+    }
+
+    private bool IsWeakpointHit()
+    {
+        // Checks if the player's ground check overlaps with the enemy's weak point
+        return Physics2D.OverlapCircle(weakpointCheck.position, 0.2f, playerLayer);
     }
 
     private void Flip()
