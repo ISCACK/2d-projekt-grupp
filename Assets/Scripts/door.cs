@@ -23,11 +23,18 @@ public class door : MonoBehaviour
     {
         float distance = Vector2.Distance(Player.transform.position, transform.position);
 
-            if (!locked && distance < 0.5f)
-            {
-             SceneManager.LoadScene(2);
-            }
+        if (!locked && distance < 0.5f)
+        {
+            StartCoroutine(DelayedSceneLoad(0.6f)); // Start the coroutine with a 3-second delay
+        }
     }
+
+    private IEnumerator DelayedSceneLoad(float delay)
+    {
+        yield return new WaitForSeconds(delay); // Wait for the specified delay
+        SceneManager.LoadScene(2); // Load the scene after the delay
+    }
+
 
     private void OnTriggerEnter2D(Collider2D other)
     {
