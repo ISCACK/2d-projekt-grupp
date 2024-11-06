@@ -1,27 +1,39 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class door : MonoBehaviour
 {
     public bool locked;
 
+    private Animator anim;
+
+    [SerializeField] GameObject Player;
+
     // Start is called before the first frame update
     void Start()
     {
+        anim = GetComponent<Animator>();
         locked = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        float distance = Vector2.Distance(Player.transform.position, transform.position);
+
+            if (!locked && distance < 0.5f)
+            {
+             SceneManager.LoadScene(2);
+            }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Key"))
         {
+            anim.SetTrigger("Open"); 
             locked = false; 
         }
     }
@@ -30,6 +42,7 @@ public class door : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Key"))
         {
+            anim.SetTrigger("Closed");
             locked = true; 
         }
     }
