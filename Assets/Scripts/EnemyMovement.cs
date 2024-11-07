@@ -5,8 +5,8 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
     private float speed = 3f;
-    private bool isFacingRight = true;
-    private bool isMovingRight = true;
+    private bool isFacingRight = false; // Start facing left
+    private bool isMovingRight = false; // Start moving left
     private float bounce = 100f; // Bounce force for the player
 
     [SerializeField] private Rigidbody2D rb;

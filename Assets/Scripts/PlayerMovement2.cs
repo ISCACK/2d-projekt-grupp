@@ -20,7 +20,6 @@ public class PlayerMovement2 : MonoBehaviour
     private float wallJumpingDuration = 0.4f;
     private Vector2 wallJumpingPower = new Vector2(8f, 16f);
 
-    // Koden under är för jump buffering. Det gör jumping mer smooth.
     private float coyoteTime = 0.2f;
     private float coyoteTimeCounter;
 
@@ -42,10 +41,17 @@ public class PlayerMovement2 : MonoBehaviour
     [SerializeField] private Transform wallCheck;
     [SerializeField] private LayerMask wallLayer;
 
+    [SerializeField] private AudioClip wallSlideAudio; // Drag your wall slide audio clip here
+    private AudioSource audioSource;
+
     private void Awake()
     {
         anim = GetComponent<Animator>();
+        audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource.clip = wallSlideAudio;
+        audioSource.loop = true; // Set to loop for continuous sliding sound
     }
+
     // Update is called once per frame
     void Update()
     {
@@ -55,7 +61,7 @@ public class PlayerMovement2 : MonoBehaviour
         }
 
         horizontal = Input.GetAxisRaw("Horizontal");
-        if(horizontal <= 0.1)
+        if (horizontal <= 0.1)
         {
             anim.Play("PlayerWalkAnim");
         }
@@ -63,7 +69,7 @@ public class PlayerMovement2 : MonoBehaviour
         {
 
         }
-        if(horizontal == 0)
+        if (horizontal == 0)
         {
             anim.Play("Idle");
         }
@@ -112,7 +118,6 @@ public class PlayerMovement2 : MonoBehaviour
         {
             Flip();
         }
-
     }
 
     private void FixedUpdate()
@@ -144,12 +149,23 @@ public class PlayerMovement2 : MonoBehaviour
         {
             isWallSliding = true;
             rb.velocity = new Vector2(rb.velocity.x, Mathf.Clamp(rb.velocity.y, -wallSlidingSpeed, float.MaxValue));
+
+            // Play wall slide audio if not already playing
+            if (!audioSource.isPlaying)
+            {
+                audioSource.Play();
+            }
         }
         else
         {
             isWallSliding = false;
-        }
 
+            // Stop the wall slide audio when no longer sliding
+            if (audioSource.isPlaying)
+            {
+                audioSource.Stop();
+            }
+        }
     }
 
     private void WallJump()
@@ -224,10 +240,5 @@ public class PlayerMovement2 : MonoBehaviour
             Destroy(other.gameObject);
             cm.coinCount++;
         }
-     
     }
-
-
-
 }
-

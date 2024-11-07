@@ -9,6 +9,8 @@ public class door : MonoBehaviour
 
     private Animator anim;
 
+    public int ToLevel;
+
     [SerializeField] GameObject Player;
 
     // Start is called before the first frame update
@@ -32,7 +34,7 @@ public class door : MonoBehaviour
     private IEnumerator DelayedSceneLoad(float delay)
     {
         yield return new WaitForSeconds(delay); // Wait for the specified delay
-        SceneManager.LoadScene(3); // Load the scene after the delay
+        SceneManager.LoadScene(ToLevel); // Load the scene after the delay
     }
 
 
