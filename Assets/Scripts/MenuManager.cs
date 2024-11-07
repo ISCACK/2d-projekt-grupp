@@ -10,4 +10,13 @@ public class MenuManager : MonoBehaviour
         SceneManager.LoadScene(name);
 
     }
+
+    public void QuitGameU()
+    {
+        Application.Quit();
+
+        Debug.Log("Bombo Left");
+    }
+
+
 }
