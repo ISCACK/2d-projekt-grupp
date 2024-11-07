@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement2 : MonoBehaviour
 {
+    private Animator anim;
     private float horizontal;
     private float speed = 8f;
     private float jumpingPower = 16f;
@@ -41,7 +42,10 @@ public class PlayerMovement2 : MonoBehaviour
     [SerializeField] private Transform wallCheck;
     [SerializeField] private LayerMask wallLayer;
 
-
+    private void Awake()
+    {
+        anim = GetComponent<Animator>();
+    }
     // Update is called once per frame
     void Update()
     {
@@ -51,6 +55,18 @@ public class PlayerMovement2 : MonoBehaviour
         }
 
         horizontal = Input.GetAxisRaw("Horizontal");
+        if(horizontal <= 0.1)
+        {
+            anim.Play("PlayerWalkAnim");
+        }
+        if (horizontal > 0.1)
+        {
+
+        }
+        if(horizontal == 0)
+        {
+            anim.Play("Idle");
+        }
 
         if (IsGrounded())
         {
@@ -205,6 +221,7 @@ public class PlayerMovement2 : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Coin"))
         {
+            Destroy(other.gameObject);
             cm.coinCount++;
         }
      

@@ -8,6 +8,7 @@ TagManager:
   - Key
   - Sign1
   - OneWayPlatform
+  - Coin
   layers:
   - Default
   - TransparentFX
