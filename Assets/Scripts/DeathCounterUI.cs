@@ -36,9 +36,8 @@ public class DeathCounterUI : MonoBehaviour
         PlayerPrefs.DeleteKey("GameStarted");
     }
 
-
     private void UpdateDeathCounterText()
     {
-        deathCounterText.text = "Deaths: " + deathCount;
+        deathCounterText.text = deathCount.ToString(); // Display only the number
     }
 }
