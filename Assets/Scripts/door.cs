@@ -32,7 +32,7 @@ public class door : MonoBehaviour
     private IEnumerator DelayedSceneLoad(float delay)
     {
         yield return new WaitForSeconds(delay); // Wait for the specified delay
-        SceneManager.LoadScene(2); // Load the scene after the delay
+        SceneManager.LoadScene(3); // Load the scene after the delay
     }
 
 
