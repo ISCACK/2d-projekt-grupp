@@ -61,11 +61,11 @@ public class PlayerMovement2 : MonoBehaviour
         }
 
         horizontal = Input.GetAxisRaw("Horizontal");
-        if (horizontal <= 0.1)
+        if (horizontal <= 0.1f)
         {
             anim.Play("PlayerWalkAnim");
         }
-        if (horizontal > 0.1)
+        if (horizontal > 0.1f)
         {
 
         }
@@ -86,6 +86,7 @@ public class PlayerMovement2 : MonoBehaviour
         if (Input.GetButtonDown("Jump"))
         {
             jumpBufferCounter = jumpBufferTime;
+            
         }
         else
         {
@@ -94,6 +95,7 @@ public class PlayerMovement2 : MonoBehaviour
 
         if (jumpBufferCounter > 0f && coyoteTimeCounter > 0f)
         {
+            
             rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
 
             jumpBufferCounter = 0f;
@@ -101,6 +103,7 @@ public class PlayerMovement2 : MonoBehaviour
 
         if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
         {
+            anim.Play("PlayerJumpingAnim");
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
 
             coyoteTimeCounter = 0f;
