@@ -372,7 +372,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fb499b2cb83d9047bc29c739398ecef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpClip: {fileID: 8300000, guid: b388744f387904b4d9bc5d18b8c85c39, type: 3}
+  jumpClip: {fileID: 8300000, guid: e4546359d8bd2994bbae45379428dcc3, type: 3}
   groundCheck: {fileID: 376513691492414601}
   groundLayer:
     serializedVersion: 2

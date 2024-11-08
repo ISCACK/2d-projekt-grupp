@@ -33322,6 +33322,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2572554569454254929, guid: 0cb7e176a295a0f4d846cb4e87c1562b, type: 3}
+      propertyPath: jumpClip
+      value: 
+      objectReference: {fileID: 8300000, guid: e4546359d8bd2994bbae45379428dcc3, type: 3}
     - target: {fileID: 7029990812531089137, guid: 0cb7e176a295a0f4d846cb4e87c1562b, type: 3}
       propertyPath: wallLayer.m_Bits
       value: 192
@@ -38833,7 +38837,7 @@ Transform:
   - {fileID: 204782610}
   - {fileID: 1634166665}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1864562526
 GameObject:

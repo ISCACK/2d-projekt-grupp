@@ -15999,7 +15999,7 @@ PrefabInstance:
     - target: {fileID: 2572554569454254929, guid: 0cb7e176a295a0f4d846cb4e87c1562b, type: 3}
       propertyPath: jumpClip
       value: 
-      objectReference: {fileID: 8300000, guid: f61f7a5f470c9004b9a7794b9b0bb22f, type: 3}
+      objectReference: {fileID: 8300000, guid: e4546359d8bd2994bbae45379428dcc3, type: 3}
     - target: {fileID: 7029990812531089150, guid: 0cb7e176a295a0f4d846cb4e87c1562b, type: 3}
       propertyPath: m_Name
       value: Player
